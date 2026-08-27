@@ -154,6 +154,34 @@ PyObject *hostid_from_file();
 			temp.data_digest = PyObject_IsTrue(value) ? true : false;
 			continue;
 		}
+		if (!PyUnicode_CompareWithASCIIString(key, "queue_size")) {
+			temp.queue_size = PyLong_AsLong(value);
+			continue;
+		}
+		if (!PyUnicode_CompareWithASCIIString(key, "fast_io_fail_tmo")) {
+			temp.fast_io_fail_tmo = PyLong_AsLong(value);
+			continue;
+		}
+		if (!PyUnicode_CompareWithASCIIString(key, "keyring")) {
+			temp.keyring = PyLong_AsLong(value);
+			continue;
+		}
+		if (!PyUnicode_CompareWithASCIIString(key, "tls_key")) {
+			temp.tls_key = PyLong_AsLong(value);
+			continue;
+		}
+		if (!PyUnicode_CompareWithASCIIString(key, "tls_configured_key")) {
+			temp.tls_configured_key = PyLong_AsLong(value);
+			continue;
+		}
+		if (!PyUnicode_CompareWithASCIIString(key, "tls")) {
+			temp.tls = PyObject_IsTrue(value) ? true : false;
+			continue;
+		}
+		if (!PyUnicode_CompareWithASCIIString(key, "concat")) {
+			temp.concat = PyObject_IsTrue(value) ? true : false;
+			continue;
+		}
 	}
 	$1 = &temp;
 };
